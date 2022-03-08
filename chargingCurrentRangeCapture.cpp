@@ -9,7 +9,7 @@
 int findNumberOfSamples(int chargingCurrentSamples[]) {
 	int numberOfSamples;
 	//numberOfSamples = (int)sizeof(chargingCurrentSamples)/sizeof(chargingCurrentSamples[0]);
-	numberOfSamples = (int)(end(chargingCurrentSamples) - begin(chargingCurrentSamples));
+	numberOfSamples = *(&chargingCurrentSamples + 1) - chargingCurrentSamples;
 	return numberOfSamples;
 }
 
