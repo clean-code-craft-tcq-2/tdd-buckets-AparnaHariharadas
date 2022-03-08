@@ -5,11 +5,14 @@
 
 TEST_CASE("Checks the charging current ranges and captures the no of occurences") {
   int CurrentRanges[] = {4,5};
-  REQUIRE(captureChargingCurrentRange(CurrentRanges) == 1);
+  int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
+  REQUIRE(captureChargingCurrentRange(CurrentRanges, noOfcurrentReadings) == 1);
   int CurrentRangesnew[6] = {3,3,4,4,5,6};
-  REQUIRE(captureChargingCurrentRange(CurrentRangesnew) == 5);
+  noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
+  REQUIRE(captureChargingCurrentRange(CurrentRangesnew, noOfcurrentReadings) == 5);
    int CurrentRangeslatest[6] = {3,4,5,6,7,8};
-  REQUIRE(captureChargingCurrentRange(CurrentRangeslatest) == 5);
+  noOfcurrentReadings = sizeof(CurrentRangeslatest)/sizeof(CurrentRangeslatest[0]);
+  REQUIRE(captureChargingCurrentRange(CurrentRangeslatest, noOfcurrentReadings) == 5);
 
 }
 
