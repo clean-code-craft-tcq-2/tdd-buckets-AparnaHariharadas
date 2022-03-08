@@ -12,6 +12,7 @@ int captureChargingCurrentRange (int *CurrentSamples){
   int final_array[NumOfCurrentSamples] = {0};
   std::sort(CurrentSamples, (CurrentSamples+NumOfCurrentSamples)); 
   for (LoopIndex = 0; LoopIndex<NumOfCurrentSamples ; LoopIndex++) {
+    cout << CurrentSamples[LoopIndex] <<endl ;
     DifferenceBetweenSamples = CurrentSamples[LoopIndex + 1] - CurrentSamples[LoopIndex];
     if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
     {
