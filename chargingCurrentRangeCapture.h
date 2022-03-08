@@ -2,4 +2,4 @@
 #include <algorithm>
 using namespace std;
 
-char* captureChargingCurrentRange (int *CurrentSamples);
+int captureChargingCurrentRange (int *CurrentSamples);
