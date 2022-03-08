@@ -7,7 +7,7 @@
 
 int findNumberOfSamples(int* chargingCurrentSamples) {
 	int numberOfSamples;
-	numberOfSamples = sizeof(chargingCurrentSamples) / sizeof(*chargingCurrentSamples);
+	numberOfSamples = (int)sizeof(chargingCurrentSamples) / sizeof(*chargingCurrentSamples);
 	return numberOfSamples;
 }
 
