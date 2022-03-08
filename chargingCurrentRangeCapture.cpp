@@ -32,6 +32,8 @@ int captureChargingCurrentRange (int *CurrentSamples){
     }
     
   }
-       cout << NumOfConsecutiveRange << rangeMinValue << rangeMaxValue << endl;
+       cout << NumOfConsecutiveRange << endl;
+       cout << rangeMinValue << endl;
+       cout << rangeMaxValue << endl;
        return (NumOfConsecutiveRange);//, rangeMinValue, rangeMaxValue);
 }
