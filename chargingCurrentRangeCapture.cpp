@@ -43,7 +43,7 @@ int captureChargingCurrentRange(int* chargingCurrentSamples){
 	cout << numberOfSamples <<endl ;
 	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	for (int LoopIndex = 0; LoopIndex<numberOfSamples ; LoopIndex++) {
+	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
 		//cout << chargingCurrentSamples[LoopIndex] <<endl ;
 		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
 		if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
@@ -57,7 +57,7 @@ int captureChargingCurrentRange(int* chargingCurrentSamples){
 	//sprintf(chargingCurrentRangeAndOccurences, "%d-%d, %lu", minValue, maxValue, numberOfOccurences);
 	//cout << chargingCurrentRangeAndOccurences <<endl;//printf("Range, Readings \n");
 	//printf("%s\n", chargingCurrentRangeAndOccurences);
-	return numberOfOccurences;
+return numberOfOccurences;
 }
 
 
