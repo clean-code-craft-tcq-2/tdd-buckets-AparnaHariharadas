@@ -29,18 +29,23 @@ int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOf
 }
 
 int findNumberOfOccurences(chargingCurrentSamples, numberOfSamples){
+	int DifferenceBetweenSamples;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
 		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
-		if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
-			{
-			numberOfOccurences ++;
-			}
+		numberOfOccurences = numberOfOccurences + checkIfConcurrent(DifferenceBetweenSamples);
 	}
-	return numberOfOccurences;
+}
+
+int checkIfConcurrent(int DifferenceBetweenSamples){
+	if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
+		return 1;
+			
+	else
+		return 0;
 }
 
 int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
-	int maxValue, minValue, DifferenceBetweenSamples;
+	int maxValue, minValu;
 	size_t numberOfSamples;
 	int numberOfOccurences = 0;
 
