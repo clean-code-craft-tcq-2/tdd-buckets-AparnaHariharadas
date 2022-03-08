@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <sstream> // for ostringstream
 #include <string>
-#include "InterpretChargingCurrentRangeAndOccurences.h"
 
 char* captureChargingCurrentRange(int* chargingCurrentSamples){
 	char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
