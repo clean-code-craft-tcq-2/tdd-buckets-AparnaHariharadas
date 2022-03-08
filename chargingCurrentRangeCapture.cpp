@@ -34,7 +34,7 @@ int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOf
 	return maxValue;
 }
 
-int captureChargingCurrentRange(int* chargingCurrentSamples){
+int captureChargingCurrentRange(int chargingCurrentSamples[]){
 	//char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
 	int maxValue, minValue, DifferenceBetweenSamples;
 	size_t numberOfSamples;
