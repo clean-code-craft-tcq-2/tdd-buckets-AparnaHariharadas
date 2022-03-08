@@ -8,9 +8,9 @@ int captureChargingCurrentRange (int *CurrentSamples){
   int LoopIndex;
   int rangeMinValue=0;
   int rangeMaxValue = 0;
-  NumOfCurrentSamples = sizeof(CurrentSamples)/sizeof(CurrentSamples[0]);
+  NumOfCurrentSamples = sizeof(*CurrentSamples)/sizeof(CurrentSamples[0]);
   int final_array[NumOfCurrentSamples] = {0};
-  sort(*CurrentSamples, *(CurrentSamples+NumOfCurrentSamples)); 
+  qsort(*CurrentSamples, *(CurrentSamples+NumOfCurrentSamples)); 
   for (LoopIndex = 0; LoopIndex<NumOfCurrentSamples ; LoopIndex++) {
     DifferenceBetweenSamples = CurrentSamples[LoopIndex + 1] - CurrentSamples[LoopIndex];
     if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
@@ -26,7 +26,7 @@ int captureChargingCurrentRange (int *CurrentSamples){
   }
   rangeMinValue = final_array[0];
   for (LoopIndex = 0; LoopIndex<NumOfCurrentSamples ; LoopIndex++) {
-    if final_array[LoopIndex] == 0
+    if (final_array[LoopIndex] == 0)
     {
       rangeMaxValue = final_array[LoopIndex - 1];
     }
