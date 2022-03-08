@@ -7,7 +7,7 @@
 
 int findNumberOfSamples(int* chargingCurrentSamples) {
 	int numberOfSamples;
-	numberOfSamples = sizeof(chargingCurrentSamples) / sizeof(chargingCurrentSamples[0]);
+	numberOfSamples = sizeof(chargingCurrentSamples) / sizeof(*chargingCurrentSamples);
 	return numberOfSamples;
 }
 
@@ -40,10 +40,11 @@ int captureChargingCurrentRange(int* chargingCurrentSamples){
 	int numberOfOccurences = 0;
 
 	numberOfSamples = findNumberOfSamples(chargingCurrentSamples);
+	cout << numberOfSamples <<endl ;
 	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	for (int LoopIndex = 0; LoopIndex<numberOfSamples ; LoopIndex++) {
-		cout << chargingCurrentSamples[LoopIndex] <<endl ;
+		//cout << chargingCurrentSamples[LoopIndex] <<endl ;
 		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
 		if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
 			{
