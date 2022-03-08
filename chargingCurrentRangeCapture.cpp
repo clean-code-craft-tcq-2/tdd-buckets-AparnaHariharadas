@@ -5,24 +5,6 @@
 #include <sstream> // for ostringstream
 #include <string>
 
-char* captureChargingCurrentRange(int* chargingCurrentSamples){
-	char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
-	int maxValue, minValue;
-	size_t numberOfSamples, numberOfOccurences;
-
-	numberOfSamples = findNumberOfSamples(chargingCurrentSamples);
-	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	numberOfOccurences = numberOfSamples; // Since input is conidered as a single range
-  std::ostringstream out;  
-  out << minValue << maxValue << numberOfOccurences;
-  cout << out.str() << endl;
-	//sprintf(chargingCurrentRangeAndOccurences, "%d-%d, %lu", minValue, maxValue, numberOfOccurences);
-	//cout << chargingCurrentRangeAndOccurences <<endl;//printf("Range, Readings \n");
-	//printf("%s\n", chargingCurrentRangeAndOccurences);
-	return chargingCurrentRangeAndOccurences;
-}
-
 size_t findNumberOfSamples(int* chargingCurrentSamples) {
 	size_t numberOfSamples;
 	numberOfSamples = sizeof(chargingCurrentSamples) / sizeof(chargingCurrentSamples[0]);
@@ -50,6 +32,26 @@ int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, size_t numbe
 	}
 	return maxValue;
 }
+
+char* captureChargingCurrentRange(int* chargingCurrentSamples){
+	char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
+	int maxValue, minValue;
+	size_t numberOfSamples, numberOfOccurences;
+
+	numberOfSamples = findNumberOfSamples(chargingCurrentSamples);
+	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
+	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
+	numberOfOccurences = numberOfSamples; // Since input is conidered as a single range
+  std::ostringstream out;  
+  out << minValue << maxValue << numberOfOccurences;
+  cout << out.str() << endl;
+	//sprintf(chargingCurrentRangeAndOccurences, "%d-%d, %lu", minValue, maxValue, numberOfOccurences);
+	//cout << chargingCurrentRangeAndOccurences <<endl;//printf("Range, Readings \n");
+	//printf("%s\n", chargingCurrentRangeAndOccurences);
+	return chargingCurrentRangeAndOccurences;
+}
+
+
 
 
 
