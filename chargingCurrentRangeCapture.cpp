@@ -5,9 +5,9 @@
 #include <sstream> // for ostringstream
 #include <string>
 
-int findNumberOfSamples(int* chargingCurrentSamples) {
+int findNumberOfSamples(int chargingCurrentSamples[]) {
 	int numberOfSamples;
-	numberOfSamples = (int)sizeof(chargingCurrentSamples) / sizeof(*chargingCurrentSamples);
+	numberOfSamples = (int)sizeof(chargingCurrentSamples) / sizeof(chargingCurrentSamples[0]);
 	return numberOfSamples;
 }
 
