@@ -38,7 +38,7 @@ int checkIfConcurrent(int DifferenceBetweenSamples){
 
 
 int findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
-	int DifferenceBetweenSamples, numberOfOccurences;
+	int DifferenceBetweenSamples, numberOfOccurences = 0;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
 		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
 		numberOfOccurences = numberOfOccurences + checkIfConcurrent(DifferenceBetweenSamples);
