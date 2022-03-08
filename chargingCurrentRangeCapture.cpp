@@ -28,7 +28,7 @@ int captureChargingCurrentRange (int *CurrentSamples){
   }
   rangeMinValue = final_array[0];
   for (LoopIndex = 0; LoopIndex<NumOfCurrentSamples ; LoopIndex++) {
-    cout << final_array[LoopIndex] <<endl ;
+    //cout << final_array[LoopIndex] <<endl ;
     if (final_array[LoopIndex] == 0)
     {
       rangeMaxValue = final_array[LoopIndex - 1];
