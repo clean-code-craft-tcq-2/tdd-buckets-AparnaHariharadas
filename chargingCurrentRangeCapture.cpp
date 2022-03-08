@@ -4,11 +4,12 @@
 #include <stdlib.h>
 #include <sstream> // for ostringstream
 #include <string>
+#include<array> 
 
 int findNumberOfSamples(int chargingCurrentSamples[]) {
 	int numberOfSamples;
-	numberOfSamples = (int)sizeof(chargingCurrentSamples)/sizeof(chargingCurrentSamples[0]);
-	//numberOfSamples = (int)(end(chargingCurrentSamples) - begin(chargingCurrentSamples));
+	//numberOfSamples = (int)sizeof(chargingCurrentSamples)/sizeof(chargingCurrentSamples[0]);
+	numberOfSamples = (int)(end(chargingCurrentSamples) - begin(chargingCurrentSamples));
 	return numberOfSamples;
 }
 
