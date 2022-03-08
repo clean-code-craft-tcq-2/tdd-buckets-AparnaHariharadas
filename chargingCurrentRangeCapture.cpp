@@ -1,6 +1,5 @@
 #include "chargingCurrentRangeCapture.h"
-#iclude <iostream.h>
-using namespace std;
+
 
 int captureChargingCurrentRange (int *CurrentSamples){
   int NumOfCurrentSamples;
@@ -33,5 +32,6 @@ int captureChargingCurrentRange (int *CurrentSamples){
     }
     
   }
-       return (NumOfConsecutiveRange, rangeMinValue rangeMaxValue);
+       cout << NumOfConsecutiveRange << rangeMinValue << rangeMaxValue << endl;
+       return (NumOfConsecutiveRange, rangeMinValue, rangeMaxValue);
 }
