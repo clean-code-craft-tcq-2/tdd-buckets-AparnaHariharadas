@@ -9,11 +9,11 @@ int captureChargingCurrentRange (int *CurrentSamples){
   int rangeMinValue=0;
   int rangeMaxValue = 0;
   NumOfCurrentSamples = sizeof(*CurrentSamples)/sizeof(CurrentSamples[0]);
-  //cout << NumOfCurrentSamples <<endl ;
+  cout << NumOfCurrentSamples <<endl ;
   int final_array[NumOfCurrentSamples] = {0};
   std::sort(CurrentSamples, (CurrentSamples+NumOfCurrentSamples)); 
   for (LoopIndex = 0; LoopIndex<NumOfCurrentSamples ; LoopIndex++) {
-    //cout << CurrentSamples[LoopIndex] <<endl ;
+    cout << CurrentSamples[LoopIndex] <<endl ;
     DifferenceBetweenSamples = CurrentSamples[LoopIndex + 1] - CurrentSamples[LoopIndex];
     if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
     {
@@ -35,8 +35,8 @@ int captureChargingCurrentRange (int *CurrentSamples){
     }
     
   }
-       cout << NumOfConsecutiveRange << endl;
-       cout << rangeMinValue << endl;
-       cout << rangeMaxValue << endl;
+       //cout << NumOfConsecutiveRange << endl;
+       //cout << rangeMinValue << endl;
+       //cout << rangeMaxValue << endl;
        return (NumOfConsecutiveRange);//, rangeMinValue, rangeMaxValue);
 }
