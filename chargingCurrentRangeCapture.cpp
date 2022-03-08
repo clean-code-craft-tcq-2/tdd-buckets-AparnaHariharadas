@@ -5,13 +5,13 @@
 #include <sstream> // for ostringstream
 #include <string>
 
-size_t findNumberOfSamples(int* chargingCurrentSamples) {
-	size_t numberOfSamples;
+int findNumberOfSamples(int* chargingCurrentSamples) {
+	int numberOfSamples;
 	numberOfSamples = sizeof(chargingCurrentSamples) / sizeof(chargingCurrentSamples[0]);
 	return numberOfSamples;
 }
 
-int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, size_t numberOfSamples){
+int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
 	int minValue;
 	minValue = chargingCurrentSamples[numberOfSamples-1]; //Initializing to last element  
 	for (size_t i=0; i<numberOfSamples; i++) {
@@ -22,7 +22,7 @@ int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, size_t numbe
 	return minValue;
 }
 
-int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, size_t numberOfSamples){
+int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
 	int maxValue;
 	maxValue = chargingCurrentSamples[0]; // Initializing to first element
 	for (size_t i=0; i<numberOfSamples; i++) {
@@ -42,7 +42,7 @@ int captureChargingCurrentRange(int* chargingCurrentSamples){
 	numberOfSamples = findNumberOfSamples(chargingCurrentSamples);
 	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	for (LoopIndex = 0; LoopIndex<numberOfSamples ; LoopIndex++) {
+	for (int LoopIndex = 0; LoopIndex<numberOfSamples ; LoopIndex++) {
 		//cout << CurrentSamples[LoopIndex] <<endl ;
 		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
 		if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
