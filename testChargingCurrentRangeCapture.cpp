@@ -10,6 +10,6 @@ TEST_CASE("Checks the charging current ranges and captures the no of occurences"
   REQUIRE(captureChargingCurrentRange(CurrentRangesnew) == 5);
    int CurrentRangeslatest[6] = {3,4,5,6,7,8};
   REQUIRE(captureChargingCurrentRange(CurrentRangeslatest) == 5);
-}
+
 }
 
