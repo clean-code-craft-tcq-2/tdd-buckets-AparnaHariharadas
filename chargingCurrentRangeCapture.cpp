@@ -9,6 +9,7 @@ int captureChargingCurrentRange (int *CurrentSamples){
   int rangeMinValue=0;
   int rangeMaxValue = 0;
   NumOfCurrentSamples = sizeof(*CurrentSamples)/sizeof(CurrentSamples[0]);
+  cout << NumOfCurrentSamples <<endl ;
   int final_array[NumOfCurrentSamples] = {0};
   std::sort(CurrentSamples, (CurrentSamples+NumOfCurrentSamples)); 
   for (LoopIndex = 0; LoopIndex<NumOfCurrentSamples ; LoopIndex++) {
