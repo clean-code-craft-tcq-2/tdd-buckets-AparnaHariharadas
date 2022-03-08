@@ -6,13 +6,6 @@
 #include <string>
 #include<array> 
 
-int findNumberOfSamples(int chargingCurrentSamples[]) {
-	int numberOfSamples;
-	//numberOfSamples = (int)sizeof(chargingCurrentSamples)/sizeof(chargingCurrentSamples[0]);
-	numberOfSamples = *(&chargingCurrentSamples + 1) - chargingCurrentSamples;
-	return numberOfSamples;
-}
-
 int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
 	int minValue;
 	minValue = chargingCurrentSamples[numberOfSamples-1]; //Initializing to last element  
@@ -35,13 +28,13 @@ int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOf
 	return maxValue;
 }
 
-int captureChargingCurrentRange(int chargingCurrentSamples[]){
+int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
 	//char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
 	int maxValue, minValue, DifferenceBetweenSamples;
 	size_t numberOfSamples;
 	int numberOfOccurences = 0;
 
-	numberOfSamples = findNumberOfSamples(chargingCurrentSamples);
+	numberOfSamples = noOfCurrentReadings;
 	cout << numberOfSamples <<endl ;
 	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
