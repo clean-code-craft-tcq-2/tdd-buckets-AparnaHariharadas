@@ -14,7 +14,7 @@ int findNumberOfSamples(int* chargingCurrentSamples) {
 int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
 	int minValue;
 	minValue = chargingCurrentSamples[numberOfSamples-1]; //Initializing to last element  
-	for (size_t i=0; i<numberOfSamples; i++) {
+	for (int i=0; i<numberOfSamples; i++) {
 		if(chargingCurrentSamples[i] < minValue){
 			minValue = chargingCurrentSamples[i];
 		}
@@ -25,7 +25,7 @@ int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOf
 int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
 	int maxValue;
 	maxValue = chargingCurrentSamples[0]; // Initializing to first element
-	for (size_t i=0; i<numberOfSamples; i++) {
+	for (int i=0; i<numberOfSamples; i++) {
 		if(chargingCurrentSamples[i] > maxValue){
 			maxValue = chargingCurrentSamples[i];
 		}
@@ -34,7 +34,7 @@ int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOf
 }
 
 int captureChargingCurrentRange(int* chargingCurrentSamples){
-	char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
+	//char *chargingCurrentRangeAndOccurences = (char*)malloc(100);
 	int maxValue, minValue, DifferenceBetweenSamples;
 	size_t numberOfSamples;
 	int numberOfOccurences = 0;
