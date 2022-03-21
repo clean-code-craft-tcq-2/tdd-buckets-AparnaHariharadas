@@ -53,16 +53,24 @@ void findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
 	size_t numberOfSamples;
 	numberOfSamples = noOfCurrentReadings;
+	int numberOfOccurencesFinal = 0;
 	cout << numberOfSamples <<endl ;
 	findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
 	
         std::ostringstream currentRangeAndOccurance;
+	numberOfOccurencesFinal = numberOfOccurences[0];
 	for (int LoopIndex = 0; LoopIndex < 5 ; LoopIndex++) {
-        currentRangeAndOccurance << minValue[LoopIndex] << "-" << maxValue[LoopIndex] << "," << numberOfOccurences[LoopIndex];
-        cout << currentRangeAndOccurance.str() << endl;
+		currentRangeAndOccurance << minValue[LoopIndex] << "-" << maxValue[LoopIndex] << "," << numberOfOccurences[LoopIndex];
+		cout << currentRangeAndOccurance.str() << endl;
+		minValue[LoopIndex] = 0;
+		maxValue[LoopIndex] = 0;
+		numberOfOccurences[LoopIndex] = 0;
+		
 	}
-        return numberOfOccurences[0];
+	
+	
+        return numberOfOccurencesFinal;
 }
 
