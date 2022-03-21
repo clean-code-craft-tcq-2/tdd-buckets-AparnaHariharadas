@@ -7,24 +7,24 @@
 #include<array> 
 int numberOfOccurences[5], minValue[5], maxValue[5] = {0};
 int counter= 0;
-int findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
-	minValue = chargingCurrentSamples[numberOfSamples-1]; //Initializing to last element  
+void findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
+	minValue[counter] = chargingCurrentSamples[numberOfSamples-1]; //Initializing to last element  
 	for (int i=0; i<numberOfSamples; i++) {
-		if(chargingCurrentSamples[i] < minValue){
+		if(chargingCurrentSamples[i] < minValue[counter]){
 			minValue[counter] = chargingCurrentSamples[i];
 		}
 	}
-	return minValue;
+	
 }
 
-int findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
-	maxValue = chargingCurrentSamples[0]; // Initializing to first element
+void findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
+	maxValue[counter] = chargingCurrentSamples[0]; // Initializing to first element
 	for (int i=0; i<numberOfSamples; i++) {
-		if(chargingCurrentSamples[i] > maxValue){
+		if(chargingCurrentSamples[i] > maxValue[counter]){
 			maxValue[counter] = chargingCurrentSamples[i];
 		}
 	}
-	return maxValue;
+
 }
 
 void checkIfConcurrent(int DifferenceBetweenSamples, int currentmaxValue, int nextMinValue){
@@ -53,12 +53,10 @@ void findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
 	int maxValue, minValue;
 	size_t numberOfSamples;
-	int numberOfOccurencesFinal = 0;
-
 	numberOfSamples = noOfCurrentReadings;
 	cout << numberOfSamples <<endl ;
-	minValue = findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	maxValue = findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
+	findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
+	findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
 	findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
 	
         std::ostringstream currentRangeAndOccurance;
