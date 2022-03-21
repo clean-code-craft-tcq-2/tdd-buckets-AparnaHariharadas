@@ -28,20 +28,20 @@ void findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberO
 }
 
 void checkIfConcurrent(int DifferenceBetweenSamples, int currentmaxValue, int nextMinValue){
-        numberOfOccurences = numberOfOccurences + checkIfConcurrent(DifferenceBetweenSamples);
-	if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
+       	if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
 		numberOfOccurences[counter] = numberOfOccurences[counter] + 1;
 			
 	else{
 		counter = counter + 1;
 		maxValue[counter] = currentmaxValue;
-	        minValueNext[counter] = nextMinValue;
+	        minValue[counter] = nextMinValue;
 		numberOfOccurences[counter] = 0;
 	}
 }
 
 
 void findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
+	int DifferenceBetweenSamples = 0;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
 		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
 		checkIfConcurrent(DifferenceBetweenSamples, chargingCurrentSamples[LoopIndex], chargingCurrentSamples[LoopIndex + 1]);
@@ -51,7 +51,6 @@ void findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 
 
 int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
-	int maxValue, minValue;
 	size_t numberOfSamples;
 	numberOfSamples = noOfCurrentReadings;
 	cout << numberOfSamples <<endl ;
@@ -64,6 +63,6 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         currentRangeAndOccurance << minValue[LoopIndex] << "-" << maxValue[LoopIndex] << "," << numberOfOccurences[LoopIndex];
         cout << currentRangeAndOccurance.str() << endl;
 	}
-        return numberOfOccurences;
+        return numberOfOccurences[0];
 }
 
