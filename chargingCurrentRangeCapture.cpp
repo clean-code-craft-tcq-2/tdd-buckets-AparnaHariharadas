@@ -62,7 +62,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         std::ostringstream currentRangeAndOccurance;
 	numberOfOccurencesFinal = numberOfOccurences[0];
 	for (int LoopIndex = 0; LoopIndex < 5 ; LoopIndex++) {
-		currentRangeAndOccurance << minValue[LoopIndex] << "-" << maxValue[LoopIndex] << "," << numberOfOccurences[LoopIndex];
+		currentRangeAndOccurance << minValue[LoopIndex] << "-" << maxValue[LoopIndex] << "," << numberOfOccurences[LoopIndex]<<"\n";
 		cout << currentRangeAndOccurance.str() << endl;
 		minValue[LoopIndex] = 0;
 		maxValue[LoopIndex] = 0;
