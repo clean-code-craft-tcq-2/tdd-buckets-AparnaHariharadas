@@ -84,7 +84,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 int convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int ampere[noOfAdcCurrentReadings] = {0};
-	float adcValuebeforeCeling
+	float adcValuebeforeCeling;
 	for(int index = 0;index < noOfAdcCurrentReadings;index++)
 	{
 		adcValuebeforeCeling = (10 * chargingAdcCurrentSamples[index]) / 4094;
