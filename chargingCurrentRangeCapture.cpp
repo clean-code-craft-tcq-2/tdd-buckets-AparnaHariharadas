@@ -81,7 +81,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         return rangeOfOccurance;
 }
 
-int convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int ampere[noOfAdcCurrentReadings] = {0};
 	float adcValuebeforeCeling;
@@ -96,6 +96,11 @@ int convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrent
 		ampere[index] = ceil(adcValuebeforeCeling);
 		}
 	}
-	return 1;
+	return *ampere;
 }
-
+int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+{
+	int * adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
+	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcArray,noOfAdcCurrentReadings);
+	return rangeOfAdcOccurances;
+}
