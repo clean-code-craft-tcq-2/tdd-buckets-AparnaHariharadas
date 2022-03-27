@@ -13,5 +13,15 @@ TEST_CASE("Checks the charging current ranges and captures the no of occurences"
   int CurrentRangeslatestvalue[10] = {3,4,5,6,7,8,10,11,12,13};
   noOfcurrentReadings = sizeof(CurrentRangeslatestvalue)/sizeof(CurrentRangeslatestvalue[0]);
   REQUIRE(captureChargingCurrentRange(CurrentRangeslatestvalue, noOfcurrentReadings) == 2);
+}
+
+TEST_CASE("Checks 12 bit ADcinput") {
+  int CurrentRanges[] = {600,800,950,1000,1200};
+  REQUIRE(convertAndCheckAdcValues(CurrentRanges, noOfcurrentReadings) == 1);
+  int CurrentRangesnew[] = {600,800,950,1000,1200,5000};
+  noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
+  REQUIRE(convertAndCheckAdcValues(CurrentRangesnew, noOfcurrentReadings) == 0);
+ 
+}
 
 }
