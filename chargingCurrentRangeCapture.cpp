@@ -81,26 +81,28 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         return rangeOfOccurance;
 }
 
-int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+int* CheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int ampere[noOfAdcCurrentReadings] = {0};
 	float adcValuebeforeCeling;
 	for(int index = 0;index < noOfAdcCurrentReadings;index++)
 	{
 		adcValuebeforeCeling = (10 * chargingAdcCurrentSamples[index]) / 4094;
-		if(adcValuebeforeCeling > 10)
+		if(adcValuebeforeCeling > 10 || adcValuebeforeCeling < 0)
 		{
 			cout <<"current Out of Range at index  : " << index<<endl;
-			return 0;
+			return NULL;
 		}else{
 		ampere[index] = ceil(adcValuebeforeCeling);
 		}
 	}
-	return *ampere;
+	return ampere;
 }
 int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
-	int * adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
+	int * adcArray;
+	//adcArray = (int*)calloc(noOfAdcCurrentReadings, sizeof(int));
+	adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
 }
