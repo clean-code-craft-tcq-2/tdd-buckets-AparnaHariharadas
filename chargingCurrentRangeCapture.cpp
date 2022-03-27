@@ -5,72 +5,68 @@
 #include <sstream> // for ostringstream
 #include <string>
 #include<array> 
-int numberOfOccurences[5], minValue[5], maxValue[5] = {0};
+int lastElement= 0;
 int counter= 0;
-void findMinValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
-	minValue[counter] = chargingCurrentSamples[numberOfSamples-1]; //Initializing to last element  
-	for (int i=0; i<numberOfSamples; i++) {
-		if(chargingCurrentSamples[i] < minValue[counter]){
-			minValue[counter] = chargingCurrentSamples[i];
+int maxValues[];
+int minValues[];
+int arrayCount[];
+
+int checkIfConcurrent(int* arrayOfOccurance){
+       int minRange, maxRange, counter, rangeCounter = 0;
+	for (int LoopIndex = 0; LoopIndex <= lastElement ; LoopIndex++) {
+		if (arrayOfOccurance[LoopIndex]!=0){
+			counter++;
+			if(minRange == 0){
+			minRange = LoopIndex;
+			maxRange = LoopIndex;
+			}
+			else{
+				maxRange = LoopIndex;
+			}
+				
+		else if (counter != 0)
+		{
+			minValues[rangeCounter] = minRange;
+			maxValues[rangeCounter] = maxRange;
+			arrayCount[rangeCounter] = counter;
+			minRange = 0;
+			maxRange = 0;
+			counter = 0;
+			rangeCounter++;
 		}
 	}
-	
-}
-
-void findMaxValueOfChargingCurrentRange(int* chargingCurrentSamples, int numberOfSamples){
-	maxValue[counter] = chargingCurrentSamples[0]; // Initializing to first element
-	for (int i=0; i<numberOfSamples; i++) {
-		if(chargingCurrentSamples[i] > maxValue[counter]){
-			maxValue[counter] = chargingCurrentSamples[i];
-		}
-	}
-
-}
-
-void checkIfConcurrent(int DifferenceBetweenSamples, int currentmaxValue, int nextMinValue){
-       	if((DifferenceBetweenSamples == 0) || (DifferenceBetweenSamples == 1))
-		numberOfOccurences[counter] = numberOfOccurences[counter] + 1;
-			
-	else{
-		counter = counter + 1;
-		maxValue[counter] = currentmaxValue;
-	        minValue[counter] = nextMinValue;
-		numberOfOccurences[counter] = 0;
-	}
+		return rangeCounter;
 }
 
 
-void findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
-	int DifferenceBetweenSamples = 0;
+int* findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
+	int* sampleOccurances;
+	int index =0;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
-		DifferenceBetweenSamples = chargingCurrentSamples[LoopIndex + 1] - chargingCurrentSamples[LoopIndex];
-		checkIfConcurrent(DifferenceBetweenSamples, chargingCurrentSamples[LoopIndex], chargingCurrentSamples[LoopIndex + 1]);
+		index = chargingCurrentSamples[LoopIndex];
+		sampleOccurances[index]++;
 	}
-	
+	lastElement = index;
+	return sampleOccurances;
 }
-
+void printRangeValuestoConsole(int rangeOccurance)
+{
+	std::ostringstream currentRangeAndOccurance;
+	numberOfOccurencesFinal = numberOfOccurences[0];
+	for (int LoopIndex = 0; LoopIndex < rangeOccurance ; LoopIndex++) {
+		currentRangeAndOccurance << minValues[rangeOccurance] << "-" << maxValues[rangeOccurance] << "," << arrayCounter[rangeOccurance]<<"\n";
+		cout << currentRangeAndOccurance.str() << endl;
+	}
+}
 
 int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
 	size_t numberOfSamples;
 	numberOfSamples = noOfCurrentReadings;
-	int numberOfOccurencesFinal = 0;
-	cout << numberOfSamples <<endl ;
-	findMinValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	findMaxValueOfChargingCurrentRange(chargingCurrentSamples, numberOfSamples);
-	findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
-	
-        std::ostringstream currentRangeAndOccurance;
-	numberOfOccurencesFinal = numberOfOccurences[0];
-	for (int LoopIndex = 0; LoopIndex < 5 ; LoopIndex++) {
-		currentRangeAndOccurance << minValue[LoopIndex] << "-" << maxValue[LoopIndex] << "," << numberOfOccurences[LoopIndex]<<"\n";
-		cout << currentRangeAndOccurance.str() << endl;
-		minValue[LoopIndex] = 0;
-		maxValue[LoopIndex] = 0;
-		numberOfOccurences[LoopIndex] = 0;
-		
-	}
-	
-	
-        return numberOfOccurencesFinal;
+	//cout << numberOfSamples <<endl ;
+	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
+	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
+	int rangeOccurance = checkIfConcurrent(arrayOfOccurances);
+        printRangeValuestoConsole(rangeOccurance);
+        return rangeOccurance;
 }
 
