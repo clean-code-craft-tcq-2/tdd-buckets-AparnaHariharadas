@@ -90,7 +90,7 @@ int convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrent
 		adcValuebeforeCeling = (10 * chargingAdcCurrentSamples[index]) / 4094;
 		if(adcValuebeforeCeling > 10)
 		{
-			count <<"current Out of Range at inxed  : " << index<<endl;
+			cout <<"current Out of Range at index  : " << index<<endl;
 			return 0;
 		}else{
 		ampere[index] = ceil(adcValuebeforeCeling);
