@@ -7,9 +7,9 @@
 #include<array> 
 int lastElement= 0;
 int counter= 0;
-int maxValues[10];
-int minValues[10];
-int arrayCount[10];
+int maxValues[10] = {0};
+int minValues[10] = {0};
+int arrayCount[10] = {0};
 
 int checkIfConcurrent(int* arrayOfOccurance){
        int minRange, maxRange = -1;
