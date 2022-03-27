@@ -18,17 +18,15 @@ int checkIfConcurrent(int* arrayOfOccurance){
 		if (arrayOfOccurance[LoopIndex]!=0){
 			counter += arrayOfOccurance[LoopIndex];
 			if(minRange == -1){
-			minRange = LoopIndex;
-			maxRange = LoopIndex;
-			cout <<"minRange "<< minRange<<endl ;
+				minRange = LoopIndex;
+				maxRange = LoopIndex;
+				cout <<"minRange "<< minRange<<endl ;
 			}
 			else{
 				maxRange = LoopIndex;
 			}
 		}
-				
-		else if (counter != 0)
-		{
+		else if (counter != 0){
 			minValues[rangeCounter] = minRange;
 			maxValues[rangeCounter] = maxRange;
 			arrayCount[rangeCounter] = counter;
