@@ -23,6 +23,7 @@ int checkIfConcurrent(int* arrayOfOccurance){
 			else{
 				maxRange = LoopIndex;
 			}
+		}
 				
 		else if (counter != 0)
 		{
