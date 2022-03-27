@@ -7,9 +7,9 @@
 #include<array> 
 int lastElement= 0;
 int counter= 0;
-int maxValues[];
-int minValues[];
-int arrayCount[];
+int maxValues[10];
+int minValues[10];
+int arrayCount[10];
 
 int checkIfConcurrent(int* arrayOfOccurance){
        int minRange, maxRange, counter, rangeCounter = 0;
@@ -52,7 +52,6 @@ int* findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 void printRangeValuestoConsole(int rangeOccurance)
 {
 	std::ostringstream currentRangeAndOccurance;
-	numberOfOccurencesFinal = numberOfOccurences[0];
 	for (int LoopIndex = 0; LoopIndex < rangeOccurance ; LoopIndex++) {
 		currentRangeAndOccurance << minValues[rangeOccurance] << "-" << maxValues[rangeOccurance] << "," << arrayCounter[rangeOccurance]<<"\n";
 		cout << currentRangeAndOccurance.str() << endl;
