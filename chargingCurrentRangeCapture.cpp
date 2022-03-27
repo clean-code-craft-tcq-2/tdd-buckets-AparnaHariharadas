@@ -6,7 +6,6 @@
 #include <string>
 #include<array> 
 int lastElement= 0;
-int counter= 0;
 int maxValues[10] = {0};
 int minValues[10] = {0};
 int arrayCount[10] = {0};
@@ -66,7 +65,6 @@ void printRangeValuestoConsole(int rangeOccurance)
 int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentReadings){
 	size_t numberOfSamples;
 	numberOfSamples = noOfCurrentReadings;
-	//cout << numberOfSamples <<endl ;
 	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
 	cout <<"initial" <<arrayOfOccurances[4] <<endl ;
