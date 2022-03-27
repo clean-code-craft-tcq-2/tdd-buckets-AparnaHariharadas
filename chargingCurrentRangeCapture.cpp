@@ -25,8 +25,6 @@ int checkIfConcurrent(int* arrayOfOccurance){
 			{
 				minRange = LoopIndex;
 				maxRange = LoopIndex;
-				cout <<" minRange "<< minRange<<endl ;
-			}
 			else
 			{
 				maxRange = LoopIndex;
@@ -37,8 +35,6 @@ int checkIfConcurrent(int* arrayOfOccurance){
 			minValues[rangeCounter] = minRange;
 			maxValues[rangeCounter] = maxRange;
 			arrayCount[rangeCounter] = counter;
-			cout <<" counter "<< counter <<"LoopIndex" <<LoopIndex <<endl ;
-			cout <<" Minimum "<< minRange <<maxRange <<minValues[rangeCounter]<<endl ;
 			minRange = -1;
 			maxRange = -1;
 			counter = 0;
@@ -63,11 +59,11 @@ int* findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 	
 	return sampleOccurances;
 }
-void printRangeValuestoConsole(int rangeOccurance)
+void printRangeValuestoConsole(int rangeOfOccurance)
 {
 	std::ostringstream currentRangeAndOccurance;
-	for (int LoopIndex = 0; LoopIndex < rangeOccurance ; LoopIndex++) {
-		currentRangeAndOccurance << minValues[rangeOccurance] << "-" << maxValues[rangeOccurance] << "," << arrayCount[rangeOccurance]<<"\n";
+	for (int LoopIndex = 0; LoopIndex < rangeOfOccurance ; LoopIndex++) {
+		currentRangeAndOccurance << minValues[LoopIndex] << "-" << maxValues[LoopIndex] << "," << arrayCount[LoopIndex]<<"\n";
 		cout << currentRangeAndOccurance.str() << endl;
 	}
 }
@@ -78,8 +74,8 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
 	//cout <<"initial" <<arrayOfOccurances[4] <<endl ;
-	int rangeOccurance = checkIfConcurrent(arrayOfOccurances);
-        printRangeValuestoConsole(rangeOccurance);
+	int rangeOfOccurance = checkIfConcurrent(arrayOfOccurances);
+        printRangeValuestoConsole(rangeOfccurance);
         return rangeOccurance;
 }
 
