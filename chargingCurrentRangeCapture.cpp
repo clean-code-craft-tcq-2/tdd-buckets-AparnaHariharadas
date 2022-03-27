@@ -12,7 +12,8 @@ int arrayCount[50] = {0};
 
 int checkIfConcurrent(int* arrayOfOccurance){
        int minRange, maxRange = -1;
-	int counter, rangeCounter = 0;
+	int counter = 0;
+	int rangeCounter = 0;
 	for (int LoopIndex = 0; LoopIndex < 50 ; LoopIndex++) 
 	{
 		if(arrayOfOccurance[LoopIndex]!=0)
