@@ -40,6 +40,7 @@ int checkIfConcurrent(int* arrayOfOccurance){
 			maxRange = -1;
 			counter = 0;
 			rangeCounter++;
+			cout <<" rangeCounter "<< rangeCounter <<endl ;
 			
 		}
 	}
