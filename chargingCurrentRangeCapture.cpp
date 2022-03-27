@@ -81,7 +81,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         return rangeOfOccurance;
 }
 
-int* CheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int ampere[noOfAdcCurrentReadings] = {0};
 	float adcValuebeforeCeling;
