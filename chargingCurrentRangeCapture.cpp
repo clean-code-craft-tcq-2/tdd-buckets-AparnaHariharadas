@@ -13,7 +13,7 @@ int arrayCount[50] = {0};
 int checkIfConcurrent(int* arrayOfOccurance){
        int minRange, maxRange = -1;
 	int counter, rangeCounter = 0;
-	for (int LoopIndex = 0; LoopIndex <= 50 ; LoopIndex++) 
+	for (int LoopIndex = 0; LoopIndex < 50 ; LoopIndex++) 
 	{
 		if(arrayOfOccurance[LoopIndex]!=0)
 		{
@@ -50,7 +50,7 @@ int checkIfConcurrent(int* arrayOfOccurance){
 int* findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 	int* sampleOccurances;
 	lastElement = chargingCurrentSamples[numberOfSamples-1];
-	sampleOccurances = (int*)calloc(lastElement, sizeof(int));
+	sampleOccurances = (int*)calloc(50, sizeof(int));
 	int index =0;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
 		index = chargingCurrentSamples[LoopIndex];
