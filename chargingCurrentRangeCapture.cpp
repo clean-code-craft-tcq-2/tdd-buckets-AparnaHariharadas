@@ -25,6 +25,7 @@ int checkIfConcurrent(int* arrayOfOccurance){
 			{
 				minRange = LoopIndex;
 				maxRange = LoopIndex;
+			}
 			else
 			{
 				maxRange = LoopIndex;
@@ -75,7 +76,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
 	//cout <<"initial" <<arrayOfOccurances[4] <<endl ;
 	int rangeOfOccurance = checkIfConcurrent(arrayOfOccurances);
-        printRangeValuestoConsole(rangeOfccurance);
-        return rangeOccurance;
+        printRangeValuestoConsole(rangeOfOccurance);
+        return rangeOfOccurance;
 }
 
