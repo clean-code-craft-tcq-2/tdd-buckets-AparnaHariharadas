@@ -42,12 +42,14 @@ int checkIfConcurrent(int* arrayOfOccurance){
 
 int* findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 	int* sampleOccurances;
+	lastElement = chargingCurrentSamples[numberOfSamples-1];
+	sampleOccurances = (int*)calloc(lastElement, sizeof(int));
 	int index =0;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
 		index = chargingCurrentSamples[LoopIndex];
 		sampleOccurances[index]++;
 	}
-	lastElement = index;
+	
 	return sampleOccurances;
 }
 void printRangeValuestoConsole(int rangeOccurance)
