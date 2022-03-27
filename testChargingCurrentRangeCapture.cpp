@@ -17,10 +17,16 @@ TEST_CASE("Checks the charging current ranges and captures the no of occurences"
 
 TEST_CASE("Checks 12 bit ADcinput") {
   int CurrentRanges[] = {600,800,950,1000,1200};
-  int noOfcurrentReadings = 5;
+  int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
   REQUIRE(convertAndCheckAdcValues(CurrentRanges, noOfcurrentReadings) == 1);
   int CurrentRangesnew[] = {600,800,950,1000,1200,5000};
   noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
   REQUIRE(convertAndCheckAdcValues(CurrentRangesnew, noOfcurrentReadings) == 0);
  
+}
+
+TEST_CASE("Checks 12 bit ADcinput and find ADC range") {
+  int CurrentRanges[] = {600,800,950,1000,1200};
+  int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
+  REQUIRE(captureConcurrentADCRanges(CurrentRanges, noOfcurrentReadings) == 1);
 }
