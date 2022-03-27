@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <sstream> // for ostringstream
 #include <string>
-#include<array> 
+#include<array>
+#include<math.h>
 int lastElement= 0;
 int maxValues[50] = {0};
 int minValues[50] = {0};
@@ -80,3 +81,21 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         return rangeOfOccurance;
 }
 
+int convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+{
+	int ampere[noOfAdcCurrentReadings] = {0};
+	float adcValuebeforeCeling
+	for(int index = 0;index < noOfAdcCurrentReadings;index++)
+	{
+		adcValuebeforeCeling = (10 * chargingAdcCurrentSamples[index]) / 4094;
+		if(adcValuebeforeCeling > 10)
+		{
+			count <<"current Out of Range at inxed  : " << index<<endl;
+			return 0;
+		}else{
+		ampere[index] = ceil(adcValuebeforeCeling);
+		}
+	}
+	return 1;
+}
+}
