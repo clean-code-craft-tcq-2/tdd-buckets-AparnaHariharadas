@@ -98,4 +98,4 @@ int convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrent
 	}
 	return 1;
 }
-}
+
