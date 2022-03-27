@@ -6,14 +6,15 @@
 #include <string>
 #include<array> 
 int lastElement= 0;
-int maxValues[10] = {0};
-int minValues[10] = {0};
-int arrayCount[10] = {0};
+int maxValues[50] = {0};
+int minValues[50] = {0};
+int arrayCount[50] = {0};
 
 int checkIfConcurrent(int* arrayOfOccurance){
        int minRange, maxRange = -1;
 	int counter, rangeCounter = 0;
-	for (int LoopIndex = 0; LoopIndex <= lastElement ; LoopIndex++) {
+	for (int LoopIndex = 0; LoopIndex <= 50 ; LoopIndex++) 
+	{
 		if(arrayOfOccurance[LoopIndex]!=0)
 		{
 			counter += arrayOfOccurance[LoopIndex];
@@ -72,7 +73,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 	numberOfSamples = noOfCurrentReadings;
 	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
-	cout <<"initial" <<arrayOfOccurances[4] <<endl ;
+	//cout <<"initial" <<arrayOfOccurances[4] <<endl ;
 	int rangeOccurance = checkIfConcurrent(arrayOfOccurances);
         printRangeValuestoConsole(rangeOccurance);
         return rangeOccurance;
