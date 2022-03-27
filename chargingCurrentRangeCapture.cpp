@@ -53,7 +53,7 @@ void printRangeValuestoConsole(int rangeOccurance)
 {
 	std::ostringstream currentRangeAndOccurance;
 	for (int LoopIndex = 0; LoopIndex < rangeOccurance ; LoopIndex++) {
-		currentRangeAndOccurance << minValues[rangeOccurance] << "-" << maxValues[rangeOccurance] << "," << arrayCounter[rangeOccurance]<<"\n";
+		currentRangeAndOccurance << minValues[rangeOccurance] << "-" << maxValues[rangeOccurance] << "," << arrayCount[rangeOccurance]<<"\n";
 		cout << currentRangeAndOccurance.str() << endl;
 	}
 }
