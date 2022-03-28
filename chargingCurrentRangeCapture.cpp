@@ -105,7 +105,9 @@ int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurre
 {
 	int* adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int adcConvertArray[noOfAdcCurrentReadings];
+	cout <<"adcArray at index  0: " << adcArray[0]<<endl;
 	memcpy(adcConvertArray, adcArray, noOfAdcCurrentReadings);
+	cout <<"adcConvertArray at index  0: " << adcConvertArray[0]<<endl;
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
 }
