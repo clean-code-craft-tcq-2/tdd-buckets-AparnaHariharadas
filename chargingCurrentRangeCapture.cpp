@@ -77,6 +77,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 	size_t numberOfSamples;
 	numberOfSamples = noOfCurrentReadings;
 	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
+	cout <<"chargingCurrentSamples at index  0: " << chargingCurrentSamples[0]<<endl;
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
 	cout <<"arrayOfOccurances at index  0: " << arrayOfOccurances[0]<<endl;
 	int rangeOfOccurance = checkIfConcurrent(arrayOfOccurances);
