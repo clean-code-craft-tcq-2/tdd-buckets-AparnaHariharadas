@@ -88,7 +88,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int* ampere;
-	ampere = (int*)calloc(noOfAdcCurrentReadings, sizeof(int));
+	ampere = (int*)calloc(50, sizeof(int));
 	float adcValuebeforeCeling;
 	for(int index = 0;index < noOfAdcCurrentReadings;index++)
 	{
@@ -106,9 +106,9 @@ int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurren
 int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int* adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
-	int adcConvertArray[noOfAdcCurrentReadings];
+	int adcConvertArray[50];
 	cout <<"adcArray at index  0: " << adcArray[0]<<endl;
-	memcpy(adcConvertArray, adcArray, noOfAdcCurrentReadings);
+	memcpy(adcConvertArray, adcArray, 50);
 	cout <<"adcConvertArray at index  0: " << adcConvertArray[0]<<endl;
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
