@@ -134,11 +134,11 @@ int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurre
 
 int ADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
-	//int* adcArray = (int*)convertAndCheckTenBitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
-	//int adcConvertArray[50];
-	//memcpy(adcConvertArray, adcArray, 50);
-	//int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
-	//return rangeOfAdcOccurances;
-	return 1;
+	int* adcArray = (int*)convertAndCheckTenBitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
+	int adcConvertArray[50];
+	memcpy(adcConvertArray, adcArray, 50);
+	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
+	return rangeOfAdcOccurances;
+
 }
 
