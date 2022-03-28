@@ -99,7 +99,6 @@ int* convertAndCheckTwelveBitAdcValues(int chargingAdcCurrentSamples[], int noOf
 		ampere[index] = ceil(adcValuebeforeCeling);
 		}
 	}
-	//cout <<"ampere  : " << ampere<<endl;
 	return ampere;
 }
 
@@ -119,7 +118,6 @@ signed int* convertAndCheckTenBitAdcValues(int chargingAdcCurrentSamples[], int 
 		ampere[index] = ceil(adcValuebeforeCeling);
 		}
 	}
-	cout <<"ampere  : " << ampere<<endl;
 	return ampere;
 }
 
