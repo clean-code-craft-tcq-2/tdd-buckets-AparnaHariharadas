@@ -125,7 +125,7 @@ signed int* convertAndCheck10BitAdcValues(int chargingAdcCurrentSamples[], int n
 
 int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
-	int* adcArray = convertAndCheck12BitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
+	int* adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int adcConvertArray[50];
 	memcpy(adcConvertArray, adcArray, 50);
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
