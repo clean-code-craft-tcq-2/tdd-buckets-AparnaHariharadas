@@ -83,7 +83,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         return rangeOfOccurance;
 }
 
-int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+int* convertAndCheckTwelveBitAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int* ampere;
 	ampere = (int*)calloc(50, sizeof(int));
@@ -102,8 +102,8 @@ int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurren
 	//cout <<"ampere  : " << ampere<<endl;
 	return ampere;
 }
-/*
-signed int* convertAndCheck10BitAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+
+signed int* convertAndCheckTenBitAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	signed int* ampere;
 	ampere = (int*)calloc(50, sizeof(int));
@@ -121,7 +121,7 @@ signed int* convertAndCheck10BitAdcValues(int chargingAdcCurrentSamples[], int n
 	}
 	cout <<"ampere  : " << ampere<<endl;
 	return ampere;
-}*/
+}
 
 int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
