@@ -134,7 +134,7 @@ int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurre
 
 int captureConcurrentTenBitADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
-	int* adcArray = (int)convertAndCheckTenBitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
+	int* adcArray = (int*)convertAndCheckTenBitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int adcConvertArray[50];
 	memcpy(adcConvertArray, adcArray, 50);
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
