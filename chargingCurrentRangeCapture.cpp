@@ -1,11 +1,14 @@
 #include "chargingCurrentRangeCapture.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <sstream> // for ostringstream
 #include <string.h>
-#include <stdlib.h>
 #include<array>
 #include<math.h>
+#include <algorithm>
+#include <iterator>
+
 int lastElement= 0;
 int maxValues[50] = {0};
 int minValues[50] = {0};
@@ -80,7 +83,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
         return rangeOfOccurance;
 }
 
-int* convertAndCheck12BitAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int* ampere;
 	ampere = (int*)calloc(50, sizeof(int));
@@ -120,7 +123,7 @@ signed int* convertAndCheck10BitAdcValues(int chargingAdcCurrentSamples[], int n
 	return ampere;
 }*/
 
-int captureConcurrent12BitADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int* adcArray = convertAndCheck12BitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int adcConvertArray[50];
