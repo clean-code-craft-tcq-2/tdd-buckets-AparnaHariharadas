@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sstream> // for ostringstream
-#include <string>
+#include <string.h>
+#include <stdlib.h>
 #include<array>
 #include<math.h>
 #include <algorithm>
@@ -108,3 +109,4 @@ int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurre
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
 }
+
