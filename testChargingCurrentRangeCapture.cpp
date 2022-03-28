@@ -35,7 +35,7 @@ TEST_CASE("Checks 12 bit ADcinput and find ADC range") {
 TEST_CASE("Checks 10 bit ADcinput") {
   int CurrentRanges[] = {0,511,1022};
   int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
-  int* ptr =convertAndCheck10BitAdcValues(CurrentRanges, noOfcurrentReadings);
+  int* ptr =convertAndCheckTenBitAdcValues(CurrentRanges, noOfcurrentReadings);
   REQUIRE(ptr[0]==0);
   int CurrentRangesnew[] = {0,511,2000};
   noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
