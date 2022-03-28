@@ -21,7 +21,7 @@ TEST_CASE("Checks 12 bit ADcinput") {
   int* ptr =convertAndCheckAdcValues(CurrentRanges, noOfcurrentReadings);
   REQUIRE(ptr[0]==2);
   int CurrentRangesnew[] = {600,800,950,1000,1200,5000};
-  int noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
+  noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
   REQUIRE(convertAndCheckAdcValues(CurrentRangesnew, noOfcurrentReadings) == NULL);
  
 }
