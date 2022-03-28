@@ -37,7 +37,7 @@ TEST_CASE("Checks 10 bit ADcinput") {
   int noOfcurrentReadings = sizeof(CurrentRanges)/sizeof(CurrentRanges[0]);
   int* ptr =convertAndCheckTenBitAdcValues(CurrentRanges, noOfcurrentReadings);
   REQUIRE(ptr[0]==-15);
-  REQUIRE(captureConcurrentTenBitADCRanges(CurrentRangesnew, noOfcurrentReadings) == 2);
+  REQUIRE(captureConcurrentTenBitADCRanges(CurrentRanges, noOfcurrentReadings) == 2);
   int CurrentRangesnew[] = {0,511,2000};
   noOfcurrentReadings = sizeof(CurrentRangesnew)/sizeof(CurrentRangesnew[0]);
   REQUIRE(convertAndCheckTenBitAdcValues(CurrentRangesnew, noOfcurrentReadings) == NULL);
