@@ -55,7 +55,7 @@ int* findNumberOfOccurences(int chargingCurrentSamples[], int numberOfSamples){
 	sampleOccurances = (int*)calloc(50, sizeof(int));
 	int index =0;
 	for (int LoopIndex = 0; LoopIndex < numberOfSamples ; LoopIndex++) {
-		index = abs(chargingCurrentSamples[LoopIndex]);
+		index = (chargingCurrentSamples[LoopIndex]);
 		sampleOccurances[index]++;
 	}
 	
@@ -96,10 +96,10 @@ int* convertAndCheck12BitAdcValues(int chargingAdcCurrentSamples[], int noOfAdcC
 		ampere[index] = ceil(adcValuebeforeCeling);
 		}
 	}
-	cout <<"ampere  : " << ampere<<endl;
+	//cout <<"ampere  : " << ampere<<endl;
 	return ampere;
 }
-
+/*
 signed int* convertAndCheck10BitAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	signed int* ampere;
@@ -118,7 +118,7 @@ signed int* convertAndCheck10BitAdcValues(int chargingAdcCurrentSamples[], int n
 	}
 	cout <<"ampere  : " << ampere<<endl;
 	return ampere;
-}
+}*/
 
 int captureConcurrent12BitADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
@@ -129,7 +129,7 @@ int captureConcurrent12BitADCRanges(int chargingAdcCurrentSamples[], int noOfAdc
 	return rangeOfAdcOccurances;
 }
 
-int captureConcurrent10BitADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
+/*int captureConcurrent10BitADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	signed int* adcArray = convertAndCheck10BitAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int adcConvertArray[50];
@@ -137,3 +137,4 @@ int captureConcurrent10BitADCRanges(int chargingAdcCurrentSamples[], int noOfAdc
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
 }
+*/
