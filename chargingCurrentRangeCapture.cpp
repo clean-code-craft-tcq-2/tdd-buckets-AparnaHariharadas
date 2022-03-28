@@ -6,6 +6,8 @@
 #include <string>
 #include<array>
 #include<math.h>
+#include <algorithm>
+#include <iterator>
 int lastElement= 0;
 int maxValues[50] = {0};
 int minValues[50] = {0};
@@ -75,7 +77,6 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 	numberOfSamples = noOfCurrentReadings;
 	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
-	//cout <<"initial" <<arrayOfOccurances[4] <<endl ;
 	int rangeOfOccurance = checkIfConcurrent(arrayOfOccurances);
         printRangeValuestoConsole(rangeOfOccurance);
         return rangeOfOccurance;
@@ -83,7 +84,8 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 
 int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
-	int ampere[noOfAdcCurrentReadings] = {0};
+	int* ampere;
+	ampere = (int*)calloc(noOfAdcCurrentReadings, sizeof(int));
 	float adcValuebeforeCeling;
 	for(int index = 0;index < noOfAdcCurrentReadings;index++)
 	{
@@ -100,9 +102,9 @@ int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurren
 }
 int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
-	int * adcArray;
-	adcArray = (int*)calloc(noOfAdcCurrentReadings, sizeof(int));
-	adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
-	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcArray,noOfAdcCurrentReadings);
+	int* adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
+	int adcConvertArray[noOfAdcCurrentReadings];
+	memcpy(adcConvertArray, adcArray, noOfAdcCurrentReadings);
+	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
 }
