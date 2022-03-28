@@ -77,9 +77,7 @@ int captureChargingCurrentRange(int chargingCurrentSamples[], int noOfCurrentRea
 	size_t numberOfSamples;
 	numberOfSamples = noOfCurrentReadings;
 	sort(chargingCurrentSamples,chargingCurrentSamples+noOfCurrentReadings);
-	cout <<"chargingCurrentSamples at index  0: " << chargingCurrentSamples[0]<<endl;
 	int* arrayOfOccurances = findNumberOfOccurences(chargingCurrentSamples, numberOfSamples);
-	cout <<"arrayOfOccurances at index  0: " << arrayOfOccurances[0]<<endl;
 	int rangeOfOccurance = checkIfConcurrent(arrayOfOccurances);
         printRangeValuestoConsole(rangeOfOccurance);
         return rangeOfOccurance;
@@ -101,15 +99,14 @@ int* convertAndCheckAdcValues(int chargingAdcCurrentSamples[], int noOfAdcCurren
 		ampere[index] = ceil(adcValuebeforeCeling);
 		}
 	}
+	cout <<"ampere  : " << ampere<<endl;
 	return ampere;
 }
 int captureConcurrentADCRanges(int chargingAdcCurrentSamples[], int noOfAdcCurrentReadings)
 {
 	int* adcArray = convertAndCheckAdcValues(chargingAdcCurrentSamples,noOfAdcCurrentReadings);
 	int adcConvertArray[50];
-	cout <<"adcArray at index  0: " << adcArray[0]<<endl;
 	memcpy(adcConvertArray, adcArray, 50);
-	cout <<"adcConvertArray at index  0: " << adcConvertArray[0]<<endl;
 	int rangeOfAdcOccurances  = captureChargingCurrentRange(adcConvertArray,noOfAdcCurrentReadings);
 	return rangeOfAdcOccurances;
 }
