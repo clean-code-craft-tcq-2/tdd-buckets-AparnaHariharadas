@@ -1,13 +1,11 @@
 #include "chargingCurrentRangeCapture.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <sstream> // for ostringstream
 #include <string.h>
 #include <stdlib.h>
 #include<array>
 #include<math.h>
-//#include <cstdlib>
 int lastElement= 0;
 int maxValues[50] = {0};
 int minValues[50] = {0};
