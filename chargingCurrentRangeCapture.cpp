@@ -13,10 +13,31 @@ int lastElement= 0;
 int maxValues[50] = {0};
 int minValues[50] = {0};
 int arrayCount[50] = {0};
+typedef minMax
+{
+int minRange;
+int maxRange;
+}MinMaxRange;
+
+//MinMaxRange minMaxValues;
+MinMaxRange findMinMaxRange(int minimumRange,int LoopIndex){
+	MinMaxRange minMaxValue;
+	if(minimumRange == -1)
+	{
+		minMaxValue.minRange = LoopIndex;
+		minMaxValue.maxRange = LoopIndex;
+	}
+	else
+	{
+		minMaxValue.maxRange = LoopIndex;
+	}
+	return minMaxValue;
+}
 
 int checkIfConcurrent(int* arrayOfOccurance){
-       int minRange = -1;
-	int maxRange = -1;
+        MinMaxRange minMaxValues;
+        minMaxValues.minRange = -1;
+	minMaxValues.maxRange = -1;
 	int counter = 0;
 	int rangeCounter = 0;
 	for (int LoopIndex = 0; LoopIndex < 50 ; LoopIndex++) 
@@ -25,20 +46,12 @@ int checkIfConcurrent(int* arrayOfOccurance){
 		{
 			counter += arrayOfOccurance[LoopIndex];
 			
-			if(minRange == -1)
-			{
-				minRange = LoopIndex;
-				maxRange = LoopIndex;
-			}
-			else
-			{
-				maxRange = LoopIndex;
-			}
+		        minMaxValues = findMinMaxRange(minMaxValues.minRange,LoopIndex);
 		}
 		else if(counter != 0)
 		{
-			minValues[rangeCounter] = minRange;
-			maxValues[rangeCounter] = maxRange;
+			minValues[rangeCounter] = minMaxValues.minRange;
+			maxValues[rangeCounter] = minMaxValues.maxRange;
 			arrayCount[rangeCounter] = counter;
 			minRange = -1;
 			maxRange = -1;
