@@ -13,7 +13,7 @@ int lastElement= 0;
 int maxValues[50] = {0};
 int minValues[50] = {0};
 int arrayCount[50] = {0};
-typedef minMax
+typedef struct minMax
 {
 int minRange;
 int maxRange;
