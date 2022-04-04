@@ -53,8 +53,8 @@ int checkIfConcurrent(int* arrayOfOccurance){
 			minValues[rangeCounter] = minMaxValues.minRange;
 			maxValues[rangeCounter] = minMaxValues.maxRange;
 			arrayCount[rangeCounter] = counter;
-			minRange = -1;
-			maxRange = -1;
+			minMaxValues.minRange = -1;
+			minMaxValues.maxRange = -1;
 			counter = 0;
 			rangeCounter++;
 			cout <<" rangeCounter "<< rangeCounter <<endl ;
